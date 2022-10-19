@@ -7,7 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "@notionhq/client": "^2.2.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "pino": "^8.6.1"
   },
   "scripts": {
     "start": "node lib/main.js"
