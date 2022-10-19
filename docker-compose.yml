@@ -1,0 +1,5 @@
+version: "3.9"
+services:
+  notion-recurring-task:
+    build: .
+    restart: always
