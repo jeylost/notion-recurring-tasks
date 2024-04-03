@@ -1,5 +1,5 @@
 # Notion Recurring Tasks
-Check tasks with checked `Done` and if it's recurring task(`Repeat` and `Due Date` isn't empty) then change `Due Date` according to selected `Repeat` and uncheck `Done`
+This script identifies tasks marked as `Done` in a Notion database. For recurring tasks (indicated by a non-empty `Repeat` and `Due Date`), it updates the Due Date based on the selected Repeat frequency and resets the Done status.
 
 ## Prerequisites
 1. Obtain Notion API Key and connect it to database. Official Notion guide [Getting Started](https://developers.notion.com/docs/getting-started).
