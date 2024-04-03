@@ -1,17 +1,20 @@
-# Description
+# Notion Recurring Tasks
 Check tasks with checked `Done` and if it's recurring task(`Repeat` and `Due Date` isn't empty) then change `Due Date` according to selected `Repeat` and uncheck `Done`
 
-# Requirements
-1. Obtain Notion API Key and connect it to database. Official guide [here]https://developers.notion.com/docs/getting-started)
-2. Database should have `Done`(checkbox), `Due Date`(date), `Repeat`(multi select: `Daily`, `Monthly`, `Yearly`, `Quarterly`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) properties
-3. Docker or Node.js installed
+## Prerequisites
+1. Obtain Notion API Key and connect it to database. Official Notion guide [Getting Started](https://developers.notion.com/docs/getting-started).
+2. Database should have properties:
+   -  `Done`(checkbox)
+   -  `Due Date`(date)
+   -  `Repeat`(multi-select: `Daily`, `Monthly`, `Yearly`, `Quarterly`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`)
+3. Docker or Node.js installed.
 
-# Steps
-1. `$ cp .env.example .env`
-2. fill .env with your data
-2. `$ yarn start`
+## Steps to Run
+1. Copy the environment file: `cp .env.example .env`.
+2. Fill in the `.env` file with your data.
+3. Start the script: `yarn start`.
 
-# Use Cases
-- If `Daily` specified everything else is ignored. Will be ALWAYS tomorrow
-- If `Monthly`, `Yearly`, `Quarterly` uses `Due Date` and add 1, 12, 3 months respectfully. Days options doesn't work
-- Days options: `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday` use `Due Date` to find the nearest date. Several options can be used at once
+## Behavior
+- Daily: The Due Date is set to the next day, regardless of other settings.
+- Monthly/Quarterly/Yearly: The script updates the Due Date by adding 1, 3, or 12 months respectively. This adjustment ignores any day-specific selections.
+- Day-Specific Options: For days of the week (Monday through Sunday), the script calculates the nearest future date matching the specified day(s). It's possible to select multiple days.
